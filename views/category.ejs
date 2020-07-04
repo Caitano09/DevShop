@@ -1,0 +1,33 @@
+ <%- include('header') %>
+   <!-- Page Content -->
+   <div class="container">
+
+    <div class="row">
+  
+
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-12">
+        <% products.forEach(product =>{ %>
+        <div class="card mt-4">
+          <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+          <div class="card-body">
+            <h3 class="card-title"><%- product.name %></h3>
+            <h4>$24.99</h4>
+            <p class="card-text"><%- product.description %></p>
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+            4.0 stars
+          </div>
+        </div>
+        
+        <% }) %>
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+
+  </div>
+
+  <!-- /.container -->
+
+  <%- include('footer') %>
