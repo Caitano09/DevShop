@@ -11,7 +11,7 @@ const getCategories = db => async() =>{
 
 const getCategoryById = db => async(id) =>{
     const category = await db('categories').select('*').where('id', id)
-    return category
+    return category[0]
 }
 
 module.exports = {getCategories, getCategoryById}
