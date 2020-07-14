@@ -1,4 +1,4 @@
-const init = db =>{
+const init = db => {
     const router = require('express').Router()
     const categories = require('../controllers/categories')
     
