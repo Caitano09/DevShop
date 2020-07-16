@@ -12,7 +12,7 @@ const initialUser = db => async(id) => {
         const user = {
             name: 'admin',
             email: 'admin@devshop.com.br',
-            password: generatePassHash('1234'),
+            password: generatePassHash('12345'),
             emailChecked: true,
             created: new Date(),
             updated: new Date(),

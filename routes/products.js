@@ -1,8 +1,8 @@
 const init = db => {
-    const products = require('../controllers/products')
+    const products = require('../controllers/products')(db)
     const router = require('express').Router()
 
-    router.get('/:id/slug', products.getProduct(db))
+    router.get('/:id/slug', products.getProduct)
 
     return router
 }

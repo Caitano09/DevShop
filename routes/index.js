@@ -4,12 +4,18 @@ const init = db => {
     const auth = require('../controllers/auth')
     const categories = require('./categories')
     const products = require('./products')
+    const admin = require('./admin')
 
     const router = require('express').Router()
+
+    //auth
     router.get('/', home.getIndex)
     router.get('/login', login.getLogin)
     router.post('/login', auth.login(db))
     router.get('/logout', auth.logout)
+
+    //router
+    router.use('/admin', admin(db))
     router.use('/categoria', categories(db))
     router.use('/produto', products(db))
 
