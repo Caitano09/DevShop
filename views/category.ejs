@@ -15,7 +15,7 @@
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
-        <% products.forEach(product =>{ %>
+        <% products.data.forEach(product =>{ %>
         <div class="card mt-4">
           <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="<%- product.name %>">
           <div class="card-body">
@@ -29,11 +29,20 @@
         <% }) %>
       </div>
       <!-- /.col-lg-9 -->
-
+      <nav aria-label="Mais Produtos">
+        <ul class="pagination justify-content-center">
+          <% if(products.pagination.currentPage > 0){ %>
+            <li class="page-item"><a class="page-link" href="?pageSize=<%- products.pagination.pageSize %>&currentPage=<%- products.pagination.currentPage -1 %>"></li>Anterior</a></li>
+          <% } %>
+          <% for(let i = 0; i < products.pagination.totalPages; i++){ %>
+            <li class="page-item <% if(i == products.pagination.currentPage){ %> active <% } %>"><a class="page-link" href="?pageSize=<%- products.pagination.pageSize %>&currentPage=<%- i %>"><%- i+1 %></a></li>
+          <% } %>
+          <% if(products.pagination.currentPage < products.pagination.totalPages-1){ %>
+            <li class="page-item"><a class="page-link" href="?pageSize=<%- products.pagination.pageSize %>&currentPage=<%- products.pagination.currentPage +1 %>">Próxima</a></li>
+          <% } %>
+        </ul>
+      </nav>
     </div>
-
   </div>
-
   <!-- /.container -->
-
   <%- include('footer') %>

@@ -4,8 +4,8 @@ const init = db => {
     const product = require('../models/product')(db)
 
     const getCategories = async (req, res) => {
-        const categoryOne = await category.getCategoryById(req.params.id)
-        const products = await product.getProductsByCategoryId(req.params.id)
+        const categoryOne = await category.getCategoryById(req.params.id,)
+        const products = await product.getProductsByCategoryId(req.params.id, req.query)
         res.render('category', {
             products,
             category: categoryOne
