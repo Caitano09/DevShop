@@ -34,7 +34,32 @@ const login = db => async(email, password) =>{
     return user[0]
 }
 
+const registerUser = db => async(nameUser, emailUser, passswordUser) =>{
+    console.log(nameUser, emailUser, passswordUser)
+    const user = {
+        name: nameUser,
+        email: emailUser,
+        password: generatePassHash(passswordUser),
+        emailChecked: true,
+        created: new Date(),
+        updated: new Date(),
+        roles: 'cliente'
+    }
+    console.log(user)
+    await db('users').insert(user)
+    return login(db)(emailUser, passswordUser)
+}
+
+const emailExist = db => async(email) =>{
+    const user = await db('users').select('*').where('email', email)
+    if(user.length !== 0){
+        throw new Error('User already registered.')
+    }    
+}
+
 module.exports = {
     initialUser,
-    login
+    login,
+    registerUser,
+    emailExist
 }
