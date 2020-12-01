@@ -4,24 +4,24 @@
 
     <br><form method="POST">
         <header class="card-header">
-            <h4 class="card-title mt-2">Criar Nova Categoria</h4>
+            <h4 class="card-title mt-2">Create New Category</h4>
         </header>
 
         <br><div >
-            <label for="inputEmail4">Categoria</label>
+            <label for="inputEmail4">Category</label>
             <input type="text" class="form-control <% if(errors.indexOf('category') >= 0){ %> is-invalid <% } %>" id="category" name="category" placeholder="Nome da categoria" value="<%- form.category %>">            
             <div class="invalid-feedback">
-              Por favor, informe uma categoria.
+              Please, enter a category.
             </div>
           </div><br>
         <div class="form-group">
-          <label for="inputAddress">Descrição</label>
+          <label for="inputAddress">Description</label>
           <textarea class="form-control <% if(errors.indexOf('description') >= 0){ %> is-invalid <% } %>" name="description" id="description" cols="30" rows="10"> <%- form.description %></textarea>
           <div class="invalid-feedback">
-            Por favor, informe uma descrição.
+            Please, enter a description.
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Salvar nova categoria</button>
+        <button type="submit" class="btn btn-primary">Save new category</button>
       </form>
 
  </div>
