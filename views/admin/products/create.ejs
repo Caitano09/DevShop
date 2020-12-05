@@ -1,0 +1,76 @@
+<%- include('../header') %>
+<!-- Page Content -->
+<div class="container">
+
+  <br>
+  <form method="POST" enctype="multipart/form-data">
+    <header class="card-header">
+      <h4 class="card-title mt-2">Create New Product</h4>
+    </header><br>
+
+    <div>
+      <label for="inputName">Name</label>
+      <input type="text" class="form-control <% if(errors.indexOf('product') >= 0){ %> is-invalid <% } %>" id="name"
+        name="name" placeholder="Product name" value="<%- form.name %>">
+      <div class="invalid-feedback">
+        Please, enter a category.
+      </div>
+    </div><br>
+
+    <div class="form-group">
+      <label for="inputDescription">Description</label>
+      <textarea class="form-control <% if(errors.indexOf('description') >= 0){ %> is-invalid <% } %>" name="description"
+        id="description" cols="30" rows="10"> <%- form.description %></textarea>
+      <div class="invalid-feedback">
+        Please, enter a description.
+      </div>
+    </div>
+
+    <div>
+      <label for="inputPrice">Price</label>
+      <input type="number" class="form-control <% if(errors.indexOf('product') >= 0){ %> is-invalid <% } %>" id="price"
+        name="price" value="<%- form.price %>">
+      <div class="invalid-feedback">
+        Please, enter a price.
+      </div>
+    </div><br>
+
+    <div>
+      <label for="inputAvailable">Available Quantity</label>
+      <input type="number" class="form-control <% if(errors.indexOf('product') >= 0){ %> is-invalid <% } %>"
+        id="available" name="available" value="<%- form.available %>">
+      <div class="invalid-feedback">
+        Please, enter a quantity.
+      </div><br>
+    </div>
+
+    <div>
+      <input type="hidden" class="form-control" id="imageFile" name="image" value="imagem">
+    </div>
+
+    <div>
+      <label for="inputAvailable">Image</label>
+      <input type="file" class="form-control <% if(errors.indexOf('product') >= 0){ %> is-invalid <% } %>" id="image"
+        name="image" value="<%- form.url %>">
+      <div class="invalid-feedback">
+        Please, upload a image.
+      </div><br>
+
+      <label for="categoria">Category:</label>
+      <select class="form-control" name="categoryId" id="categoryId">
+        <% locals.categories.forEach(categoria =>{ %>
+        <option value="<%= categoria.id %>"> <%- categoria.category %></option>
+        <% }) %>
+      </select><br>
+
+
+      <button type="submit" class="btn btn-primary">Save new category</button>
+  </form>
+
+</div>
+
+</div><br>
+
+<!-- /.container -->
+
+<%- include('../../footer') %>
