@@ -10,7 +10,7 @@
 
     <div>
       <label for="inputName">Name</label>
-      <input type="text" class="form-control <% if(errors.indexOf('product') >= 0){ %> is-invalid <% } %>" id="name"
+      <input type="text" class="form-control <% if(errors.indexOf('name') >= 0){ %> is-invalid <% } %>" id="name"
         name="name" placeholder="Product name" value="<%- form.name %>">
       <div class="invalid-feedback">
         Please, enter a category.
@@ -20,7 +20,7 @@
     <div class="form-group">
       <label for="inputDescription">Description</label>
       <textarea class="form-control <% if(errors.indexOf('description') >= 0){ %> is-invalid <% } %>" name="description"
-        id="description" cols="30" rows="10"> <%- form.description %></textarea>
+        id="description" cols="30" rows="10"><%- form.description %></textarea>
       <div class="invalid-feedback">
         Please, enter a description.
       </div>
@@ -28,7 +28,7 @@
 
     <div>
       <label for="inputPrice">Price</label>
-      <input type="number" class="form-control <% if(errors.indexOf('product') >= 0){ %> is-invalid <% } %>" id="price"
+      <input type="number" class="form-control <% if(errors.indexOf('price') >= 0){ %> is-invalid <% } %>" id="price"
         name="price" value="<%- form.price %>">
       <div class="invalid-feedback">
         Please, enter a price.
@@ -37,7 +37,7 @@
 
     <div>
       <label for="inputAvailable">Available Quantity</label>
-      <input type="number" class="form-control <% if(errors.indexOf('product') >= 0){ %> is-invalid <% } %>"
+      <input type="number" class="form-control <% if(errors.indexOf('available') >= 0){ %> is-invalid <% } %>"
         id="available" name="available" value="<%- form.available %>">
       <div class="invalid-feedback">
         Please, enter a quantity.
@@ -50,7 +50,7 @@
 
     <div>
       <label for="inputAvailable">Image</label>
-      <input type="file" class="form-control <% if(errors.indexOf('product') >= 0){ %> is-invalid <% } %>" id="image"
+      <input type="file" class="form-control <% if(errors.indexOf('image') >= 0){ %> is-invalid <% } %>" id="image"
         name="image" value="<%- form.url %>">
       <div class="invalid-feedback">
         Please, upload a image.
