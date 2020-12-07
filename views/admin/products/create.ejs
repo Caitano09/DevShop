@@ -5,7 +5,9 @@
   <br>
   <form method="POST" enctype="multipart/form-data">
     <header class="card-header">
-      <h4 class="card-title mt-2">Create New Product</h4>
+      <h4 class="card-title mt-2">Create New Product 
+        <a href="javascript:history.back()" class="btn btn-secondary">Voltar</a>
+      </h4>
     </header><br>
 
     <div>
@@ -28,7 +30,7 @@
 
     <div>
       <label for="inputPrice">Price</label>
-      <input type="number" class="form-control <% if(errors.indexOf('price') >= 0){ %> is-invalid <% } %>" id="price"
+      <input type="number" step="0.01" class="form-control <% if(errors.indexOf('price') >= 0){ %> is-invalid <% } %>" id="price"
         name="price" value="<%- form.price %>">
       <div class="invalid-feedback">
         Please, enter a price.
@@ -64,7 +66,7 @@
       </select><br>
 
 
-      <button type="submit" class="btn btn-primary">Save new category</button>
+      <button type="submit" class="btn btn-primary">Save new product</button>
   </form>
 
 </div>

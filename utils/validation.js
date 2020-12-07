@@ -1,5 +1,3 @@
-const filehelper = require('./file-helper')
-
 extractErrors = error => {
 
     const errors = error.details.reduce((prev, curr) => {
@@ -31,21 +29,4 @@ const validate = (obj, scheama) => {
     }
 }
 
-const validateImage =async image => {
-    try {
-        // Vamos mandar essa imagem para compressão antes de prosseguir
-        // Ela vai retornar o a promise com o novo caminho como resultado, então continuamos com o then.
-       const newPath = await filehelper.compressImage(image, 100)
-        //console.log("Upload e compressão realizados com sucesso! O novo caminho é:" + newPath)
-        return newPath
-    } catch (err) {
-        throw {
-            //errors:  ['erro'],
-            errors: { image: ['erro'] },
-            fields: ['Houve erro no upload!']
-        }
-    }
-
-}
-
-module.exports = { validate, validateImage }
+module.exports = { validate }

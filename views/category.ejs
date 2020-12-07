@@ -1,48 +1,52 @@
- <%- include('header') %>
-   <!-- Page Content -->
-   <div class="container">
+<%- include('header') %>
+<!-- Page Content -->
+<div class="container">
 
-    <div class="row">
-      <div class="col-lg-3">
-        <h1 class="my-4"><%- locals.category.category %></h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item active">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+  <div class="row">
+    <div class="col-lg-3">
+      <h1 class="my-4"><%- locals.category.category %></h1>
+      <div class="list-group">
+        <a href="javascript:history.back()" class="btn btn-secondary">Voltar</a>
+      </div>
+    </div>
+
+    <!-- /.col-lg-3 -->
+    <!--<%- JSON.stringify(products) %> -->
+    <div class="col-lg-9">
+      <% products.data.forEach(product =>{ %>
+
+      <div class="card mt-4 ">
+        <img class="card-img-top img-fluid" src="/images/products/<%- product.image %>" alt="<%- product.name %>">
+        <div class="card-body">
+          <h3 class="card-title"><a href="/produto/<%- product.id %>/slug"><%- product.name %></a></h3>
+          <h4>R$<%- product.price %></h4>
+          <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+          4.0 stars
         </div>
       </div>
 
-      <!-- /.col-lg-3 -->
-
-      <div class="col-lg-9">
-        <% products.data.forEach(product =>{ %>
-        <div class="card mt-4">
-          <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="<%- product.name %>">
-          <div class="card-body">
-            <h3 class="card-title"><a href="/produto/<%-product.id %>/slug"><%- product.name %></a></h3>
-            <h4>$24.99</h4>
-            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-            4.0 stars
-          </div>
-        </div>
-        
-        <% }) %>
-      </div>
-      <!-- /.col-lg-9 -->
-      <nav aria-label="Mais Produtos">
+      <% }) %>
+      <!--<nav aria-label="Mais Produtos">
         <ul class="pagination justify-content-center">
           <% if(products.pagination.currentPage > 0){ %>
-            <li class="page-item"><a class="page-link" href="?pageSize=<%- products.pagination.pageSize %>&currentPage=<%- products.pagination.currentPage -1 %>"></li>Anterior</a></li>
+          <li class="page-item"><a class="page-link"
+              href="?pageSize=<%- products.pagination.pageSize %>&currentPage=<%- products.pagination.currentPage -1 %>">
+          </li>Anterior</a></li>
           <% } %>
           <% for(let i = 0; i < products.pagination.totalPages; i++){ %>
-            <li class="page-item <% if(i == products.pagination.currentPage){ %> active <% } %>"><a class="page-link" href="?pageSize=<%- products.pagination.pageSize %>&currentPage=<%- i %>"><%- i+1 %></a></li>
+          <li class="page-item <% if(i == products.pagination.currentPage){ %> active <% } %>"><a class="page-link"
+              href="?pageSize=<%- products.pagination.pageSize %>&currentPage=<%- i %>"><%- i+1 %></a></li>
           <% } %>
           <% if(products.pagination.currentPage < products.pagination.totalPages-1){ %>
-            <li class="page-item"><a class="page-link" href="?pageSize=<%- products.pagination.pageSize %>&currentPage=<%- products.pagination.currentPage +1 %>">Próxima</a></li>
+          <li class="page-item"><a class="page-link"
+              href="?pageSize=<%- products.pagination.pageSize %>&currentPage=<%- products.pagination.currentPage +1 %>">Próxima</a>
+          </li>
           <% } %>
         </ul>
-      </nav>
+      </nav>-->
     </div>
+    <!-- /.col-lg-9 -->
   </div>
-  <!-- /.container -->
-  <%- include('footer') %>
+</div><br>
+<!-- /.container -->
+<%- include('footer') %>

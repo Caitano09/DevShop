@@ -16,7 +16,7 @@ const initialUser = db => async(id) => {
             emailChecked: true,
             created: new Date(),
             updated: new Date(),
-            roles: 'admin,financeiro,cliente'
+            roles: 'admin,cliente'
         }
         await db('users').insert(user)
     }

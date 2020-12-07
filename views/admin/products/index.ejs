@@ -2,28 +2,32 @@
 <!-- Page Content -->
 <div class="container">
 
-   <!-- /.col-lg-3 -->
-   <div class="col-lg-9">
+  <!-- /.col-lg-3 -->
+  <div class="col-lg-9">
     <a href="/admin/produtos/nova" class="btn btn-primary">New Product</a>
-     <% products.forEach(product =>{ %>
-     <div class="card mt-4">
-       <div class="card-body">
-           <article class="col-sm-9">
-         <h3 class="card-title"><%- product.name %></h3></article>
-         <aside class="col-sm-3">
-            <p>
-                <a href="/admin/produtos/editar/<%- product.id %>" class="btn btn-primary">Edit</a>
-                <a href="/admin/produtos/excluir/<%- product.id %>" class="btn btn-secondary" onclick="return confirm('Do you want really delete?')"> Delete</a>
-            </p>
-           </aside>
-        </div>
-     </div>
-     
-     <% }) %>
-   </div>
-   <!-- /.col-lg-9 -->
+    <a href="/admin" class="btn btn-secondary">Voltar</a>
+    <% products.forEach(product =>{ %>
+    <div class="card mt-4">
+      <div class="card-body">
+        <article class="col-sm-9">
+          <img class="card-img-top img-fluid" src="/images/products/<%- product.image %>" alt="<%- product.name %>">
+          <h3 class="card-title"><%- product.name %></h3>
+        </article>
+        <aside class="col-sm-3">
+          <p>
+            <a href="/admin/produtos/editar/<%- product.id %>" class="btn btn-primary">Edit</a>
+            <a href="/admin/produtos/excluir/<%- product.id %>" class="btn btn-secondary"
+              onclick="return confirm('Do you want really delete?')"> Delete</a>
+          </p>
+        </aside>
+      </div>
+    </div>
 
- </div>
+    <% }) %>
+  </div>
+  <!-- /.col-lg-9 -->
+
+</div>
 
 </div><br>
 

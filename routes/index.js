@@ -1,5 +1,5 @@
 const init = db => {
-    const home = require('../controllers/home')
+    const home = require('../controllers/home')(db)
     const login = require('../controllers/login')
     const auth = require('../controllers/auth')
     const categories = require('./categories')

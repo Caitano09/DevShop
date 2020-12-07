@@ -33,9 +33,9 @@ const init = db => {
 
     const getProductsBycategoryId = async (id, query) => {
         const pagination = getPaginationParams(query)
-        const products = await db('products')
+        const products = await db('categories')
             .select('*')
-            .join('categories', 'categories.id', '=', 'products.categoryId').where('categoryId', id)
+            .join('products', 'categories.id', '=', 'products.categoryId').where('categoryId', id)
             .offset(pagination.pageSize * pagination.currentPage).limit(pagination.pageSize)
 
         const productsCount = await db('products')
@@ -59,7 +59,7 @@ const init = db => {
     }
 
     const createProduct = async (product, image) => {
-        product.image = await validation.validateImage(image)
+        product.image = image.filename
         const value = validation.validate(product, createScheama)
         await db('products').insert(value)
         return true
@@ -70,18 +70,17 @@ const init = db => {
     }
 
     const updateProduct = async (id, product, image) => {
-
         const imagemBanco = await db('products').select('image as image').where('id', id)
         
         if (image) {
-            const path = './'+imagemBanco[0].image
+            const path = './public/images/products/'+imagemBanco[0].image
             fs.unlink(path, (err) => {
                 if (err) {
                     console.error(err)
                     return
                 } 
             })
-            product.image = await validation.validateImage(image)
+            product.image = image.filename
 
         } else {
             product.image = imagemBanco[0].image
