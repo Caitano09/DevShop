@@ -66,6 +66,15 @@ const init = db => {
     }
 
     const removeProduct = async (id) => {
+        const imagemBanco = await db('products').select('image as image').where('id', id)
+        const path = './public/images/products/'+imagemBanco[0].image
+        fs.unlink(path, (err) => {
+            if (err) {
+                console.error(err)
+                return
+            }
+        })
+    
         await db('products').where({ id }).delete()
     }
 
