@@ -36,9 +36,11 @@ This app features all the latest tools and practices in mobile development!
 
 ## Getting started
 
-Run npm to install dependecies<br>
-Run npm start for start the app<br>
-login user admin: admin@devshop.com.br 
+1. You need have <code>npm</code> installed<br>
+2. Clone or Download this repo using the button <b>CODE</b> at the top this page <br>
+3. In the project's directory run <code>npm install</code> to install dependencies <br>
+4. Run <code>npm start</code> to start the web application <br><br>
+login user admin: admin@devshop.com.br</br>
 password: 12345
 
 
